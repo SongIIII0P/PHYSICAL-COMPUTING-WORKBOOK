@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>Week09</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        color: rgb(101, 12, 255);
+    }
+
+    #title {
+        font-family: "Noto Serif Display", serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        font-size: 250px;
+        text-align: right;
+        margin-right: 50px;
+        color: rgb(101, 12, 255);
+
+    }
+
+    .layout {
+        display: flex;
+        justify-content: space-around;
+        padding: 50px;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .column01,
+    .column02,
+    .column03 {
+        width: 30%;
+        min-width: 200px;
+        opacity: 0;
+    }
+
+    .column01 {
+        opacity: 0;
+        animation: fadeIn 3s ease-in-out 1s forwards;
+
+
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+
+    .column02 {
+        margin-top: 1380px;
+        text-align: center;
+    }
+
+    .column03 {
+        margin-top: 2960px;
+        text-align: right;
+    }
+
+
+
+    .photo {
+        width: 350px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+
+    }
+
+
+    video {
+        width: 400px;
+        border: none;
+        outline: none;
+        display: block;
+        position: relative;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 40px;
+        margin-bottom: 30px;
+        border-radius: 50% / 50%;
+        overflow: hidden;
+    }
+
+    .open {
+        color: black;
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+
+    .code {
+        text-align: left;
+        color: chartreuse;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 12px;
+        margin: 20px 0 20px 80px;
+        display: none;
+    }
+
+
+    p {
+        font-family: "Noto Serif Display", serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        font-size: 15px;
+        line-height: 1.6;
+        /**filter: drop-shadow(0 0 0.5px rgb(0, 255, 234)) drop-shadow(0 0 5px rgb(0, 255, 234)) ;**/
+    }
+
+    .reseach {
+        position: relative;
+        display: inline-block;
+        font-family: "Noto Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        font-size: 16px;
+        text-align: center;
+        color: aqua;
+
+    }
+
+    .reseach a {
+
+        font-family: "Noto Serif Display", serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        font-size: 13px;
+        text-align: center;
+        text-decoration: none;
+        color: aqua;
+
+    }
+
+    .reseach a:hover {
+
+        color: rgb(101, 12, 255);
+
+    }
+
+    .reseach .rPhoto {
+        margin-right: auto;
+        width: 380px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        filter: drop-shadow(0 0 10px rgb(101, 12, 255));
+
+    }
+
+    .reseach:hover .rPhoto {
+        filter: drop-shadow(0 0 10px rgb(101, 12, 255)) brightness(60%);
+        transition: filter 0.3s ease;
+    }
+
+
+    .reseach .inner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.6));
+
+    }
+
+    .reseach:hover .inner {
+        opacity: 1;
+    }
+
+
+    .continue {
+        color: rgb(0, 0, 0);
+        margin-top: 50px;
+        opacity: 0;
+        filter: drop-shadow(0 0 10px rgb(0, 255, 234));
+        cursor: pointer;
+
+    }
+
+    #continue01 {
+        margin-left: 250px;
+        animation: fadeIn 1s ease-in-out 4s forwards,
+            fadeIn02 0.5s ease-in-out 5s infinite alternate;
+    }
+
+
+    #continue02 {
+        text-align: center;
+    }
+
+    #continue03 {
+        font-size: larger;
+        text-align: right;
+    }
+
+    #continue03 a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    @keyframes fadeIn02 {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+
+
+
+
+    .bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('img/01_.png');
+        background-size: 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+        filter: blur(30px);
+        z-index: -5;
+        animation: rotate 200s linear infinite, blury 20s ease-in-out infinite;
+    }
+
+    @keyframes blury {
+        0% {
+            filter: blur(30px);
+        }
+
+        50% {
+            filter: blur(8px);
+        }
+
+        100% {
+            filter: blur(30px);
+        }
+    }
+
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+
+
+    .colour {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: aqua;
+        z-index: -6;
+    }
+</style>
+
+
+
+
+<body>
+    <div class="bg"></div>
+    <div class="colour"></div>
+    <div id="title"><i>Week09</i></div>
+
+    <div class="layout">
+        <div class="column01">
+
+            <p>
+                It’s the final week of Physical Computing. <br>
+                Arduino, you’ve honestly put me through a lot… <br>
+                but since I had fun, I guess I’ll forgive you. <br><br>
+
+                Getting to know you these past few weeks,<br>
+                I don’t know, you kind of gave me some inspiration.<br><br>
+
+                It’s just the basics I’ve learned from spending time with you, <br>
+                but I tried making some little sketches.
+            </p>
+            <img src="img/sketch01.jpg" class="photo" id="shoes">
+            <p>
+                The first idea is called <i>Emotional Shoes</i>. <br>
+                There’s a pressure sensor embedded in the sole, <br>
+                every step triggers a sound that changes<br>
+                based on how strong and fast the step is.<br><br>
+
+                Because, well…our footsteps change with our mood, right?<br>
+                It’s like expressing emotion through your walk.<br>
+
+                If I use a <i>pressure sensor</i> and a <i>speaker</i>,<br>
+                and set up different <i>notes</i> and <i>delay</i> in the code…<br>
+                I think it could actually work...?<br>
+                maybe?<br>
+            </p>
+            <img src="img/sketch02.gif" class="photo" id="monitor">
+            <p>
+                The second idea is called <i>Fragmented Mirror</i>. <br>
+                It’s more like an art installation I want to make. <br>
+                It detects a person from different angles, <br>
+                and shows a distorted version of themself on the monitor <br>
+                based on the sensor data! <br><br>
+
+                There’s a monitor with a built-in webcam <br>
+                and it uses sensors like <i>infrared distance sensors,<br>
+                    photoresistors,</i> and <i>temperature sensors</i> to read the viewer. <br><br>
+
+                The monitor captures and zooms in on parts of the person <br>
+                like eyes, nose, mouth, hands, legs. <br>
+
+                Depending on their temperature, movements, <br>
+                or how close they are, the image shifts — <br>
+                colours change, noise appears, things become distorted!<br><br>
+
+                Of course, the coding wouldn’t be easy <br>
+                but it could turn out pretty amazing, right? <br>
+            </p>
+
+            <div class="continue" id="continue01"> <i>Continue▸</i></div>
+
+        </div>
+
+        <div class="column02">
+
+            <p>
+                So… <br>
+                what do you think of my <i>Chindogu ideas?</i><br>
+                Pretty cool, right? <br><br>
+
+                Also, Arduino, <br>
+                you actually work really well with P5 code. <br>
+                How did you know I like P5…?<br>
+            </p>
+            <video src="img/circle.mp4" autoplay muted loop></video>
+            <div class="open">▾ open ▾</div>
+            <div class="code" style="margin-left: 90px;">
+                let msg; <br>
+                let serialOptions = { baudRate: 9600 };<br>
+                let serial;<br>
+                let isConnected = false;<br>
+                let dataIn = 0;<br>
+                let textY = 40;<br><br>
+
+                function setup() {<br>
+                createCanvas(windowWidth, windowHeight);<br>
+                background(100);<br>
+                textFont('Courier New');<br>
+                textSize(20);<br><br>
+
+                serial = new Serial();<br>
+                serial.on(SerialEvents.CONNECTION_OPENED, onSerialConnectionOpened);<br>
+                serial.on(SerialEvents.CONNECTION_CLOSED, onSerialConnectionClosed);<br>
+                serial.on(SerialEvents.DATA_RECEIVED, onSerialDataReceived);<br>
+                serial.on(SerialEvents.ERROR_OCCURRED, onSerialErrorOccurred);<br>
+                msg = "Not connected";<br>
+                }<br><br>
+
+                function draw() {<br>
+                let mappedData=map(dataIn, 0, 255, 0, height);<br>
+                background(dataIn);<br>
+                fill(0,255,0);<br>
+                circle(width/2, height/2, mappedData);<br>
+                text(msg,40,textY)<br>
+                }<br>
+            </div>
+            <p>
+                When I turned the potentiometer, <br>
+                the circle got bigger and smaller. <br><br>
+
+                I love it!!<br>
+                It kind of felt like a old-school arcade game<br>
+                where you move things with a joystick or dial!<br><br>
+
+                I used to play around with P5 code a bit? <br>
+                so I added a little fun to it.
+            </p>
+
+            <video src="img/circle02.mp4" autoplay muted loop
+                style=" height: 400px; object-fit: cover; border-radius: 50%;"></video>
+            <div class="open">▾ open ▾</div>
+            <div class="code" style="margin-left: 80px;">
+                let msg; <br>
+                let dataIn = 0;<br>
+                let textY = 40;<br><br>
+                let newData, prevData;
+
+                function setup() {<br>
+                createCanvas(windowWidth, windowHeight);<br>
+                ------------------------<br>
+                }<br><br>
+
+                function draw() { <br>
+
+                let mappedData=map(dataIn, 0, 255, 0, height);<br>
+                background(dataIn);<br>
+                circle(width/2, height/2, mappedData);<br>
+                text(msg,40,textY);<br><br>
+
+                if (newData != prevData) {<br>
+                randColor1 = random(255);<br>
+                randColor2 = random(255);<br>
+                randColor3 = random(255);<br>
+                fill(random(randColor1),random(randColor2), random(randColor3)); <br>
+                newData = dataIn;<br>
+                }<br>
+                prevData = dataIn;<br>
+                }
+            </div>
+            <p>
+                I threw in a bit of random() <br>
+                so now when I turn the potentiometer, <br>
+                the circle not only grows and shrinks <br>
+                but also flashes all these rainbow colours. Yay! <br> <br>
+
+                Well… it’s simple code <br>
+                but it looks awesome, right? <br>
+
+            </p>
+
+            <div class="continue" id="continue02"><i>Continue▸</i></div>
+
+        </div>
+        <div class="column03">
+            <p>
+                Arduino, let me just say again. <br>
+                you’ve really made things hard for me. <br><br>
+
+                You’re nothing like the code I thought I knew <br>
+                You’ve got your own language, and you’re never alone. <br>
+                You always come with a whole bunch of weird little parts! <br>
+                <i>Wires, resistors, LEDs…</i> <br>
+                so many tiny friends I lost count <br>
+                whew... <br><br>
+
+                So over the past three weeks, <br>
+                I did some digging to figure you and your friends out <br>
+                and tried to learn your language <br><br>
+
+                Not gonna lie.<br>
+                IT WASN’T EASY!
+            </p>
+            <div class="reseach">
+                <img src="img/tinker.jpg" class="rPhoto" style="width: 380px;">
+                <div class="inner">
+                    <div style="margin-bottom: 8px;"><i>Tinkercad Learning Center</i></div>
+                    <a
+                        href="https://www.tinkercad.com/learn/circuits?collectionId=O0K87SQL1W5N4P2">https://www.tinkercad.com/learn/circuits?collectionId=O0K87SQL1W5N4P2</a>
+                </div>
+            </div>
+            <p>
+                So I got a lot of help from the <i>Tinkercad Learning Center!</i> <br>
+                They introduced me to all your little friends <br>
+                and explained how they actually work. <br>
+                Honestly, that place saved me!
+            </p>
+
+            <div class="reseach">
+                <img src="img/ard.jpg" class="rPhoto" style="width: 380px;">
+                <div class="inner">
+                    <div style="margin-bottom: 8px;"><i>Arduino Documentation</i></div>
+                    <a href="https://docs.arduino.cc/learn/">https://docs.arduino.cc/learn/</a>
+                </div>
+            </div>
+            <p>
+                Oh, and the <i>Arduino Documentation</i> too! <br>
+                Turns out it knows a lot about you, especially your language. <br>
+                It explained your code in a way I could actually understand. <br>
+            </p>
+
+            <div class="reseach">
+                <img src="https://yurisuzuki.com/archive/wp-content/uploads/Ototo-from-above4_Crop.jpg" class="rPhoto"
+                    style="width: 380px;">
+                <div class="inner">
+                    <div style="margin-bottom: 8px;"><i>Dentaku–Ototo</i></div>
+                    <a
+                        href="https://yurisuzuki.com/archive/works/dentaku-ototo-2/">https://yurisuzuki.com/archive/works/dentaku-ototo-2/</a>
+                </div>
+            </div>
+            <p>
+                Oh! I found someone kind of like you, Arduino <br>
+                A distant cousin maybe…? <br>
+                It’s called <i>Ototo</i>, made by Dentaku <br><br>
+
+                It reminded me of what we did in Week 8. <br>
+                you know, the potato&orange&foil circuit? <br><br>
+
+                Ototo lets us turn almost anything into a musical instrument. <br>
+                Fruits, plants, water, even drawings! <br>
+                Just connect it with alligator clips, <br>
+                and it sings when you touch it. <br><br>
+
+                It seems to run on the same logic <br>
+                but when it comes to singing...<br>
+                sorry, Arduino. Ototo might have the edge. <br>
+            </p>
+
+
+            <div class="reseach">
+                <img src="https://live.staticflickr.com/7113/7779762222_3f89759989_b.jpg" class="rPhoto"
+                    style="width: 380px;">
+                <div class="inner">
+                    <div style="margin-bottom: 8px;"><i>Seiko Mikami-Desire of Codes</i></div>
+                    <a
+                        href="https://www.ycam.jp/en/archive/works/desire-of-codes/">https://www.ycam.jp/en/archive/works/desire-of-codes/</a>
+                </div>
+            </div>
+            <p>
+                And one of my personal favourite works — <br>
+                Seiko Mikami’s <i>Desire of Codes.</i><br><br>
+
+                This artwork uses motion tracking, cameras,<br> and mechanical sensors
+                to follow the audience in real time. <br>
+                The lights and cameras react to people’s movement and sound <br>
+                They physically shift and track the body, almost like they’re alive! <br><br>
+
+                What I really love is how the recorded footage gets broken up <br>
+                and reassembled across 61 different screens. <br>
+
+                The image becomes fragmented and scattered like digital shards. <br>
+                It feels unsettling and slightly overwhelming <br>
+                like you’re being watched and broken apart. <br><br>
+
+                That definitely inspired my <i>Fragmented Mirror!</i> <br><br><br>
+
+                Well… I guess this is the end. <br>
+                It was nice meeting you, Arduino. <br>
+
+                I’m actually kind of glad I got to know you. <br>
+                (maybe… just maybe) <br> <br>
+
+                I’ll come visit again someday.<br>
+
+                And next time I’ll be a cooler designer <br>
+                ready to mess with you even more!!!! <br>
+
+                Until then, bye-bye ✌️
+
+            </p>
+
+
+
+        </div>
+
+
+
+</body>
+
+<script>
+    const c2 = document.querySelector('.column02');
+    const c3 = document.querySelector('.column03');
+    const continueBtn01 = document.getElementById("continue01");
+    const continueBtn02 = document.getElementById("continue02");
+    const continueBtn03 = document.getElementById("continue03");
+
+
+    continueBtn01.addEventListener('click', () => {
+        c2.style.animation = "fadeIn 3s ease-in-out forwards";
+        continueBtn02.style.animation = "fadeIn 2s ease-in-out 4s forwards, fadeIn02 0.5s ease-in-out 6s infinite alternate";
+    });
+
+    continueBtn02.addEventListener('click', () => {
+        c3.style.animation = "fadeIn 3s ease-in-out forwards";
+        continueBtn03.style.animation = "fadeIn 2s ease-in-out 4s forwards, fadeIn02 0.5s ease-in-out 6s infinite alternate";
+    });
+
+    document.querySelectorAll('.open').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const code = btn.nextElementSibling;
+            if (code.style.display === "none" || code.style.display === "") {
+                code.style.display = "block";
+                btn.innerHTML = "▴ close ▴";
+            } else {
+                code.style.display = "none";
+                btn.innerHTML = "▾ open ▾";
+            }
+        });
+    });
+
+</script>
+
+
+
+
+
+</html>

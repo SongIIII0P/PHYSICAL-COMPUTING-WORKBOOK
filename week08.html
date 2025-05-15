@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>week08</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        color: orange;
+    }
+
+    #title {
+        font-family: "Noto Serif Display", serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        font-size: 250px;
+        /**text-align: right;**/
+        margin-right: 50px;
+        color: rgb(255, 119, 0);
+
+    }
+
+    .layout {
+        display: flex;
+        justify-content: space-around;
+        padding: 50px;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .column01,
+    .column02,
+    .column03 {
+        width: 30%;
+        min-width: 200px;
+        opacity: 0;
+    }
+
+    .column01 {
+        margin-top: 50px;
+        opacity: 0;
+        animation: fadeIn 3s ease-in-out 1s forwards;
+        text-align: right;
+
+
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+
+    .column02 {
+        margin-top: 1380px;
+        text-align: center;
+    }
+
+    .column03 {
+        margin-top: 2600px;
+    }
+
+
+
+    .photo {
+        width: 350px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+
+    }
+
+    #sensorSound {
+        filter: drop-shadow(0 0 10px rgb(255, 106, 0));
+    }
+
+    #pm {
+        margin-left: 100px;
+    }
+
+    #regi {
+        width: 300px;
+    }
+
+
+
+    video {
+        width: 350px;
+        border: none;
+        outline: none;
+        display: block;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .playVd {
+        position: relative;
+        display: inline-block;
+    }
+
+    .playVd video {
+        display: block;
+    }
+
+    .playVd .click {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgb(70, 4, 252);
+        font-size: 20px;
+        pointer-events: none;
+        text-shadow: 0 0 10px rgb(245, 79, 46);
+    }
+
+    .open {
+        color: black;
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+
+    .code {
+        text-align: left;
+        color: chartreuse;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 12px;
+        margin: 20px 0 20px 80px;
+        display: none;
+    }
+
+    p {
+        font-family: "Noto Serif Display", serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        font-size: 15px;
+        line-height: 1.5;
+        /**filter: drop-shadow(0 0 0.5px rgb(0, 255, 234)) drop-shadow(0 0 5px rgb(0, 255, 234)) ;**/
+    }
+
+    .continue {
+        color: rgb(0, 0, 0);
+        margin-top: 50px;
+        opacity: 0;
+        filter: drop-shadow(0 0 8px rgb(255, 140, 0));
+        cursor: pointer;
+
+    }
+
+    #continue01 {
+        margin-right: 320px;
+        text-align: right;
+        animation: fadeIn 1s ease-in-out 4s forwards,
+            fadeIn02 0.5s ease-in-out 5s infinite alternate;
+    }
+
+
+    #continue02 {
+        text-align: center;
+    }
+
+    #continue03 {
+        font-size: larger;
+    }
+
+    #continue03 a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    @keyframes fadeIn02 {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+
+
+
+
+    .bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('img/03_.png');
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center;
+        filter: blur(30px);
+        z-index: -5;
+        animation: rotate 200s linear infinite, blury 20s ease-in-out infinite;
+    }
+
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes blury {
+        0% {
+            filter: blur(30px);
+        }
+
+        50% {
+            filter: blur(8px);
+        }
+
+        100% {
+            filter: blur(30px);
+        }
+    }
+
+    .colour {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(86, 83, 225);
+        z-index: -6;
+    }
+</style>
+
+
+<body>
+    <div class="bg"></div>
+    <div class="colour"></div>
+    <div id="title"><i>Week08</i></div>
+
+    <div class="layout">
+        <div class="column03">
+
+            <p>
+                I thought you couldn’t surprise me anymore… <br>
+                But now you respond to <i>my touch?</i><br>
+                With a potato, orange, and a piece of foil?? <br>
+                You totally caught me off guard...phew
+            </p>
+            <div class="playVd" id="orangeVd">
+                <video id="vd03" src="img/orange.mp4" playsinline></video>
+                <div class="click" id="click03"><i>click</i></div>
+            </div>
+
+            <div class="open" style="margin-left: 130px;">▾ open ▾</div>
+            <div class="code" style="margin-left: 0px;">
+                #include <CapacitiveSensor.h> <br><br>
+
+                    #define PIEZO_PIN 9 <br>
+                    #define LED_PIN 4<br>
+                    #define csSamples 5<br>
+
+                    CapacitiveSensor cs_2_3 = CapacitiveSensor(2, 3);<br>
+                    CapacitiveSensor cs_2_5 = CapacitiveSensor(2, 5);<br>
+                    CapacitiveSensor cs_2_6 = CapacitiveSensor(2, 6);<br><br>
+
+                    bool lampState = false;<br>
+                    int sen1Val, sen2Val, sen3Val = 0;<br><br>
+
+                    void setup() {<br>
+                    Serial.begin(9600);<br>
+                    pinMode(PIEZO_PIN, OUTPUT);<br>
+                    pinMode(LED_PIN, OUTPUT);<br>
+                    Serial.println("Setup complete. Ready for touch!");<br>
+                    }<br><br>
+
+                    void loop() {<br>
+                    sen1Val = cs_2_3.capacitiveSensor(csSamples);<br>
+                    sen2Val = cs_2_5.capacitiveSensor(csSamples);<br>
+                    sen3Val = cs_2_6.capacitiveSensor(csSamples);<br><br>
+
+                    Serial.print("Sen1: "); Serial.print(sen1Val);<br>
+                    Serial.print(" | Sen2: "); Serial.print(sen2Val);<br>
+                    Serial.print(" | Sen3: "); Serial.println(sen3Val);<br><br>
+
+                    if (sen1Val > 80) {<br>
+                    tone(PIEZO_PIN, 262, 150);<br>
+                    Serial.println("Wire 1 touched - C4");<br>
+                    }<br>
+                    else if (sen2Val > 80) {<br>
+                    tone(PIEZO_PIN, 294, 200);<br>
+                    Serial.println("Wire 2 touched - D4");<br>
+                    }<br>
+                    else if (sen3Val > 80) {<br>
+                    tone(PIEZO_PIN, 330, 250);<br>
+                    Serial.println("Wire 3 touched - E4");<br>
+                    }<br>
+                    else {<br>
+                    noTone(PIEZO_PIN);<br>
+                    }<br>
+
+                    delay(80);<br>
+                    }
+            </div>
+
+
+            <p>
+                I messed around with the <i>senVal</i>, <i>tone</i> duration, and <i>delay</i>. <br>
+                But of course, you weren’t gonna make it easy, huh? <br>
+                I thought foil, you know "it's metal", <br>
+                it would be super responsive… <br>
+                but nope! <br>
+                You always gave me a hard time. <br><br>
+
+                But still… it was intriguing. <br>
+                I felt like I was playing the piano. <br>
+                Have I ever touched a potato that gently before? <br>
+                It was… oddly delicate. <br>
+                A little strange... <br>
+                A little sensual...
+            </p>
+            <div class="continue" id="continue03"> <a href="week09.html"><i>◂Week09</i></a></div>
+
+
+        </div>
+
+        <div class="column02">
+
+            <p id=""> But I’m weirdly into it... <br><br>
+                Also you sing? <br>
+                I mean, adjusting pitch based on light intensity? <br>
+                for a second I thought you were an opera singer. <br>
+            </p>
+            <div class="playVd" id="soundVd">
+                <video id="vd" src="img/sound.mp4" playsinline></video>
+                <div class="click" id="click01"><i>click</i></div>
+            </div>
+            <div class="open">▾ open ▾</div>
+            <div class="code" style="margin-left: 50;">
+                int lightPin = A0; <br>
+                long brightness;<br>
+                int maxBrightness;<br>
+                int myTone = 0;<br>
+                int speakerPin = A5;<br>
+
+                int tones[] = {261, 277, 294, 311, 330, 349,<br> 370, 392, 415, 440, 457, 468, 500};<br>
+                int numTones = 13;<br>
+                String notes[] = {"mid C", "C#", "D", "D#", "E",<br> "E#", "F", "F#", "G", "G#", "A", "A4",
+                "B4"};<br><br>
+
+                void setup() {<br>
+                Serial.begin(9600);<br>
+                pinMode(speakerPin, OUTPUT);<br>
+                delay(100);<br>
+                maxBrightness = analogRead(lightPin);<br>
+                Serial.println("calibration value: " + String(brightness));<br>
+                }<br>
+
+                void loop() {<br>
+                brightness = analogRead(lightPin);<br>
+                Serial.println(brightness);<br>
+                myTone = map(brightness, 880, maxBrightness, 0, 10);<br>
+                myTone = constrain(myTone, 0, numTones - 1);<br>
+                delay(100);<br>
+
+                if (brightness > 50) {<br>
+                tone(speakerPin, tones[myTone]);<br>
+                Serial.println(notes[myTone]);<br>
+                delay(30);<br>
+                } else {<br>
+                noTone(speakerPin);
+                }<br>
+
+                Serial.print("playing tone: ");
+                Serial.println(myTone);
+                delay(100);<br>
+                }
+            </div>
+            <p>
+                Such a complicated little piece of code… <br>
+                I tried adding or removing some <i>notes</i> and <br>
+                played around with the <i>delay</i> to change the rhythm a bit.<br>
+                I mean… it seems like it’s working, right? <br><br><br>
+                And you dance too? <br>
+                Spinning based on light intensity?<br>
+                Honestly, that’s impressive.
+            </p>
+
+            <div class="playVd" id="servoVd">
+                <video id="vd02" src="img/servo.mp4" playsinline></video>
+                <div class="click" id="click02"><i>click</i></div>
+            </div>
+            <div class="open">▾ open ▾</div>
+            <div class="code" style="margin-left: 160px;">
+                #include <Servo.h>
+                    int photo; <br>
+                    Servo s;<br><br>
+
+                    void setup(){<br>
+                    s.attach(9);<br>
+                    Serial.begin(9600);<br>
+                    }<br><br>
+
+                    void loop(){<br>
+                    photo = analogRead(A1);<br>
+                    Serial.println(photo);<br>
+                    if(photo < 800){<br>
+                        s.write(130);<br>
+                        }else{<br>
+                        s.write(20);<br>
+                        }}<br>
+
+            </div>
+            <p>
+                I watched you dance <br>
+                while changing the <i>photo</i>’s value and the <i>rotation angle</i>. <br>
+                It felt like you're dancing to my movements. <br>
+                The motor went whiiir~ whiiir~ <br>
+                Total poppin’ vibes!
+            </p>
+            <div class="continue" id="continue02"><i>◂Continue</i></div>
+
+        </div>
+
+
+
+
+        <div class="column01">
+
+            <p>
+                <b>Arduino</b>…<br>
+                haha...the more I get to know you, <br>
+                the more you grow on me. <br>
+                What am I supposed to do with that? <br>
+
+            </p>
+            <img src="img/soundsensor.png" class="photo" id="sensorSound">
+
+            <p>
+                Sure, <br>
+                you’re still a vast, mysterious world I can’t fully grasp.
+            </p>
+
+            <img src="img/pm.gif" class="photo" id="pm">
+            <p> I still get confused by the <b>+</b> and<b>–</b> signs on the breadboard, </p>
+
+            <img src="img/regi.gif" class="photo" id="regi">
+            <p> and all those resistor values, 10K, 1MΩ, 100KΩ<br>
+                it’s endless....<br>
+            </p>
+            <img src="img/cont.gif" class="photo" id="cont">
+            <p>
+                And apart from GND and 5V on the controller board, <br>
+                I’m still figuring out what the rest of those numbers mean.
+            </p>
+
+            <div class="continue" id="continue01"> <i>◂ Continue</i></div>
+
+        </div>
+
+    </div>
+
+
+
+</body>
+
+<script>
+    const c2 = document.querySelector('.column02');
+    const c3 = document.querySelector('.column03');
+    const continueBtn01 = document.getElementById("continue01");
+    const continueBtn02 = document.getElementById("continue02");
+    const continueBtn03 = document.getElementById("continue03");
+
+
+    continueBtn01.addEventListener('click', () => {
+      c2.style.animation = "fadeIn 3s ease-in-out forwards";
+     continueBtn02.style.animation = "fadeIn 2s ease-in-out 4s forwards, fadeIn02 0.5s ease-in-out 6s infinite alternate";
+    });
+
+    continueBtn02.addEventListener('click', () => {
+      c3.style.animation = "fadeIn 3s ease-in-out forwards";
+     continueBtn03.style.animation = "fadeIn 2s ease-in-out 4s forwards, fadeIn02 0.5s ease-in-out 6s infinite alternate";
+    });
+
+    const video = document.getElementById("vd");
+    const video02 = document.getElementById("vd02");
+    const video03 = document.getElementById("vd03");
+
+    const clickVd = document.getElementById("click01");
+    const clickVd02 = document.getElementById("click02");
+    const clickVd03 = document.getElementById("click03");
+
+    document.querySelector("#soundVd").addEventListener("click", () => {
+        clickVd.style.animation = "fadeOut 1.5s ease-in-out forwards";
+
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    });
+
+    document.querySelector("#vd02").addEventListener("click", () => {
+        clickVd02.style.animation = "fadeOut 1.5s ease-in-out forwards";
+
+        if (video02.paused) {
+            video02.play();
+        } else {
+            video02.pause();
+        }
+    });
+
+    document.querySelector("#vd03").addEventListener("click", () => {
+        clickVd03.style.animation = "fadeOut 1.5s ease-in-out forwards";
+
+        if (video03.paused) {
+            video03.play();
+        } else {
+            video03.pause();
+        }
+    });
+
+    //const openBtn = document.querySelector('.open');
+    //const codeBlock = document.querySelector('.code');
+
+    //openBtn.addEventListener("click", () => {
+    // if (codeBlock.style.display === "none") {
+    //codeBlock.style.display = "block";
+    //openBtn.innerHTML = "▴ close ▴";
+    //} else {
+    //codeBlock.style.display = "none";
+    //openBtn.innerHTML = "▾ open ▾";
+    // }
+    // }); failed...
+
+    document.querySelectorAll('.open').forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const code = btn.nextElementSibling;
+            if (code.style.display === "none" || code.style.display === "") {
+                code.style.display = "block";
+                btn.innerHTML = "▴ close ▴";
+            } else {
+                code.style.display = "none";
+                btn.innerHTML = "▾ open ▾";
+            }
+        });
+    });
+
+
+
+</script>
+
+
+
+
+
+</html>
